@@ -1,8 +1,11 @@
 package com.esfom.math;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.logging.log4j.spi.LoggerContextFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Combinatorics Utils for calculation:<br>
@@ -16,6 +19,8 @@ import java.util.List;
  *
  */
 public class Combinatorics {
+	
+	private static Logger log = LoggerFactory.getLogger(Combinatorics.class);
 
 	/**
 	 * P(n) = n!
@@ -234,14 +239,19 @@ public class Combinatorics {
 	public static BigInteger smartCalc(int n, Integer k, boolean order, boolean repeats)
 			throws IllegalArgumentException {
 		if (order && repeats && k != null) {
+			log.trace("Calc with accomodationsWithRepeats");
 			return accomodationsWithRepeats(n, k);
 		} else if (order && !repeats && k != null) {
+			log.trace("Calc with accomodationsNoRepeats");
 			return accomodationsNoRepeats(n, k);
 		} else if (order && (k == null || n == k)) {
+			log.trace("Calc with permutationsNoRepeats");
 			return permutationsNoRepeats(n);
 		} else if (!order && !repeats && k != null) {
+			log.trace("Calc with combinationsNoRepeats");
 			return combinationsNoRepeats(n, k);
 		} else if (!order && repeats && k != null) {
+			log.trace("Calc with combinationsWithRepeats");
 			return combinationsWithRepeats(n, k);
 		}
 		throw new IllegalArgumentException("Have NO formula for this arguments set.");
