@@ -3,7 +3,6 @@ package com.esfom.math;
 import java.math.BigInteger;
 import java.util.List;
 
-import org.apache.logging.log4j.spi.LoggerContextFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
