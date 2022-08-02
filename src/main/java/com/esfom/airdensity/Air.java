@@ -7,6 +7,11 @@ public class Air {
 	private double pressure;
 	private AirDensity airDensity;
 	
+	public Air() {
+		super();
+		this.airDensity = new AirDensityCIPM2007();
+	}
+	
 	public void set(double temperature, double humidity, double pressure) {
 		this.setTemperature(temperature);
 		this.setHumidity(humidity);
