@@ -2,7 +2,7 @@
 
 Useful utility classes for metrlogy
 
-###### Maven dependency
+## Maven dependency
 **Add repository:**
 ``<repository>
 <id>jitpack.io</id>
